@@ -16,8 +16,8 @@ public class AppTest {
 
 		UiAutomator2Options options = new UiAutomator2Options();
 
-		options.setCapability("platformName", "android");
-		options.setCapability("appium:automationName", "uiautomator2");
+//		options.setCapability("platformName", "android");
+//		options.setCapability("appium:automationName", "uiautomator2");
 		options.setCapability("appium:deviceName", "emulator-5554");
 		options.setCapability("appium:app",
 				"C:\\StarAgile\\AndroidMobileAppTesting\\src\\test\\resources\\ApiDemos-debug.apk");

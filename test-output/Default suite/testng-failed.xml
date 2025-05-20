@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="codes.AppManagementWithTestNGAssertions">
+      <class name="android.keyevents.AutomateKeyboardEvents">
         <methods>
-          <include name="testAppManagement"/>
+          <include name="testKeyPressEvent"/>
         </methods>
-      </class> <!-- codes.AppManagementWithTestNGAssertions -->
+      </class> <!-- android.keyevents.AutomateKeyboardEvents -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

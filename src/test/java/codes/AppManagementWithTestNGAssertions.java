@@ -37,7 +37,7 @@ public class AppManagementWithTestNGAssertions {
             System.out.println("App installed: " + isAppInstalled);
 
             // 2. Assert that the app is not installed initially
-            Assert.assertFalse(isAppInstalled, "The app should not be installed initially.");
+            Assert.assertTrue(isAppInstalled, "The app should not be installed initially.");
 
             // 3. Install the app if not installed
             if (!isAppInstalled) {

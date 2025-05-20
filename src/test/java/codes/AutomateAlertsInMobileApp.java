@@ -24,17 +24,25 @@ public class AutomateAlertsInMobileApp {
 
 		// app
 		driver.findElement(AppiumBy.accessibilityId("App")).click();
+		
+		Thread.sleep(3000);
 
 		// alerts option
 		driver.findElement(AppiumBy.accessibilityId("Alert Dialogs")).click();
+		
+		Thread.sleep(3000);
 
 		// alert1
 		driver.findElement(AppiumBy.accessibilityId("OK Cancel dialog with a message")).click();
+		
+		Thread.sleep(3000);
 
 		// alert will open
 
 		Alert alt1 = driver.switchTo().alert();
 		System.out.println("Alert1 Text is: " + alt1.getText());
+		
+		Thread.sleep(3000);
 
 		// ok
 		alt1.accept();
@@ -48,6 +56,8 @@ public class AutomateAlertsInMobileApp {
 		Alert alt2 = driver.switchTo().alert();
 
 		System.out.println("Alert 2 text is: " + alt2.getText());
+		
+		Thread.sleep(3000);
 
 		// cancel
 		alt2.dismiss();

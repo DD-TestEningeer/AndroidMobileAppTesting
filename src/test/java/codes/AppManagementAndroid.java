@@ -8,86 +8,41 @@ import org.testng.annotations.Test;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
+import io.appium.java_client.appmanagement.ApplicationState;
+import utils.DriverUtil;
 
 public class AppManagementAndroid {
 
-    private static final String DEVICE_NAME = "emulator-5554";
-    private static final String APPIUM_SERVER_URL = "http://127.0.0.1:4723";
-    private static final String APP_PACKAGE = "io.appium.android.apis";
-    private static final String APK_PATH = "C:\\StarAgile\\AndroidMobileAppTesting\\src\\test\\resources\\ApiDemos-debug.apk";
+	@Test
+	public void testAppManagement() throws MalformedURLException, InterruptedException {
 
-    @Test
-    public void testAppManagement() throws MalformedURLException {
+		AndroidDriver driver = null;
 
-        AndroidDriver driver = null;
+		driver = DriverUtil.getAndroidDriver();
 
-        try {
-            // Set up device options
-            UiAutomator2Options options = new UiAutomator2Options()
-                    .setDeviceName(DEVICE_NAME);
+		// install the app
 
-            // Create Android driver
-            driver = new AndroidDriver(new URL(APPIUM_SERVER_URL), options);
-            System.out.println("Session created with ID: " + driver.getSessionId());
+		driver.installApp("C:\\StarAgile\\AndroidMobileAppTesting\\src\\test\\resources\\ApiDemos-debug.apk");
 
-            // Check if app is installed
-            boolean isInstalled = driver.isAppInstalled(APP_PACKAGE);
-            System.out.println("App installed: " + isInstalled);
+		// activate the app
 
-            // Install app if not already installed
-            if (!isInstalled) {
-                driver.installApp(APK_PATH);
-                System.out.println("App installed successfully.");
-            } else {
-                System.out.println("App is already installed.");
-            }
+		driver.activateApp("io.appium.android.apis");
 
-            Thread.sleep(2000);
+		// run the app in background
+		driver.runAppInBackground(Duration.ofSeconds(10));
 
-            // Activate app
-            driver.activateApp(APP_PACKAGE);
-            System.out.println("App launched.");
-            System.out.println("App state: " + driver.queryAppState(APP_PACKAGE));
+		Thread.sleep(3000);
 
-            Thread.sleep(2000);
+		// status of the app
 
-            // Terminate the app
-            driver.terminateApp(APP_PACKAGE);
-            System.out.println("App terminated.");
+		ApplicationState state = driver.queryAppState("io.appium.android.apis");
 
-            Thread.sleep(2000);
+		System.out.println("The current app state : " + state);
 
-            // Reactivate the app
-            driver.activateApp(APP_PACKAGE);
-            System.out.println("App reactivated.");
+		// uninstalled the app
 
-            Thread.sleep(2000);
+//         driver.removeApp("io.appium.android.apis");
 
-            // Run app in background
-            driver.runAppInBackground(Duration.ofSeconds(5));
-            System.out.println("App is running in background for 5 seconds.");
+	}
 
-//            Thread.sleep(2000);
-
-            // Query app state after running in background
-            System.out.println("App state after running in background: " + driver.queryAppState(APP_PACKAGE));
-
-            // Uninstall the app
-            driver.removeApp(APP_PACKAGE);
-            System.out.println("App uninstalled.");
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            // Quit the driver to close the session
-            if (driver != null) {
-                driver.quit();
-                System.out.println("Driver session closed.");
-            }
-        }
-    }
-    
-    
-    
-    
 }
