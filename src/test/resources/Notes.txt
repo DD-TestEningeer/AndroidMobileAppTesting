@@ -1,0 +1,6 @@
+
+
+1) The APIDemos-debug.apk file details 
+
+package name   ='io.appium.android.apis'
+activity name  ='io.appium.android.apis.ApiDemos'
