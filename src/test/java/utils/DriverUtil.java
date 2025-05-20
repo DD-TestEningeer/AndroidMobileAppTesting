@@ -18,6 +18,8 @@ public class DriverUtil {
 		options.setCapability("appium:deviceName", "emulator-5554");
 		options.setCapability("appium:app",
 				"C:\\StarAgile\\AndroidMobileAppTesting\\src\\test\\resources\\ApiDemos-debug.apk");
+		
+		// please replace with your actual apk file location 
 
 		// Server URL
 

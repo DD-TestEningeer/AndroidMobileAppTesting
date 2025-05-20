@@ -4,3 +4,13 @@
 
 package name   ='io.appium.android.apis'
 activity name  ='io.appium.android.apis.ApiDemos'
+
+
+Appium Inspector Desired Caps
+
+{
+  "platformName": "Android",
+  "appium:automationName": "UiAutomator2",
+  "appium:deviceName": "emulator-5556",
+  "appium:app": "C:\\StarAgile\\AndroidMobileTestingNew\\src\\test\\resources\\ApiDemos-debug.apk"
+}
