@@ -1,16 +1,33 @@
-
-
-1) The APIDemos-debug.apk file details 
-
-package name   ='io.appium.android.apis'
-activity name  ='io.appium.android.apis.ApiDemos'
-
-
-Appium Inspector Desired Caps
-
-{
-  "platformName": "Android",
-  "appium:automationName": "UiAutomator2",
-  "appium:deviceName": "emulator-5556",
-  "appium:app": "C:\\StarAgile\\AndroidMobileTestingNew\\src\\test\\resources\\ApiDemos-debug.apk"
-}
+	
+	
+	1) The APIDemos-debug.apk file details 
+	
+	package name   ='io.appium.android.apis'
+	activity name  ='io.appium.android.apis.ApiDemos'
+	
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	🛠️ Methods to Find App Package & Activity
+	
+	✅ 1. From an Installed App on Emulator (ApiDemos-debug.apk should be installed and Opened on the emulator )
+		Step 1: Open Command Prompt or Android Studio Terminal
+		Run the following command:
+			adb shell dumpsys window | findstr mCurrentFocus
+	Example Output:
+	mCurrentFocus=Window{... io.appium.android.apis/io.appium.android.apis.ApiDemos}
+	✅ Extract:
+	•	appPackage: io.appium.android.apis
+	•	appActivity: io.appium.android.apis.ApiDemos
+	
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	
+	Appium Inspector Desired Caps (Replace the app path with your actual app file location )
+	
+	{
+	  "platformName": "Android",
+	  "appium:automationName": "UiAutomator2",
+	  "appium:deviceName": "emulator-5556",
+	  "appium:app": "C:\\StarAgile\\AndroidMobileTestingNew\\src\\test\\resources\\ApiDemos-debug.apk"
+	}
+	
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	
