@@ -11,6 +11,7 @@ import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import utils.DriverUtil;
+import utils.LogUtil;
 
 public class TestLocators {
 
@@ -30,7 +31,10 @@ public class TestLocators {
 
 		String actTitle = home.getText();
 
-		System.out.println("The actual title of the app is : " + actTitle);
+//		System.out.println("The actual title of the app is : " + actTitle);
+		
+		
+		LogUtil.info("The actual title of the app is : " + actTitle);
 
 		Assert.assertEquals(actTitle, expTitle);
 

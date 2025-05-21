@@ -65,6 +65,8 @@
             <artifactId>log4j-core</artifactId>
             <version>${log4j.version}</version>
         </dependency>
+        
+   
 
         <!-- ExtentReports -->
         <dependency>

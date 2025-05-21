@@ -19,6 +19,38 @@ public class ElementUtil
 //https://github.com/appium/appium-uiautomator2-driver/blob/master/docs/android-mobile-gestures.md
 
 {
+
+	public static void longClick(AppiumDriver driver, WebElement element) {
+
+		driver.executeScript("mobile:longClickGesture",
+				ImmutableMap.of("elementId", ((RemoteWebElement) element).getId(), "duration", 4000
+
+				));
+
+	}
+
+	public static void dragAndDropElement(AndroidDriver driver, WebElement element) {
+
+		// gesture
+		driver.executeScript("mobile:dragGesture", ImmutableMap.of(
+
+				"elementId", ((RemoteWebElement) element).getId(), "endX", 804, "endY", 1543
+
+		));
+
+	}
+
+	public static void dragAndDropElement(AppiumDriver driver, WebElement element) {
+
+		// gesture
+		driver.executeScript("mobile:dragGesture", ImmutableMap.of(
+
+				"elementId", ((RemoteWebElement) element).getId(), "endX", 804, "endY", 1543
+
+		));
+
+	}
+
 	public static void getScreenshot(AndroidDriver driver, String fname) {
 		TakesScreenshot ts = (TakesScreenshot) driver;
 		File temp = ts.getScreenshotAs(OutputType.FILE);
@@ -53,18 +85,13 @@ public class ElementUtil
 
 				));
 	}
-	
-	
-	
+
 	public static void scrollDown(AndroidDriver driver, WebElement area) {
 		driver.executeScript("mobile:scrollGesture",
 				ImmutableMap.of("elementId", ((RemoteWebElement) area).getId(), "direction", "down", "percent", 1.0
 
 				));
 	}
-	
-	
-	
 
 	public static void scrollDownUpToCount(AppiumDriver driver, WebElement area, int count) {
 		for (int i = 1; i <= count; i++) {

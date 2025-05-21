@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="android.keyevents.AutomateKeyboardEvents">
+      <class name="android.day5.TestNetworkConfiguration">
         <methods>
-          <include name="testKeyPressEvent"/>
+          <include name="testNetwrokConfiguration"/>
         </methods>
-      </class> <!-- android.keyevents.AutomateKeyboardEvents -->
+      </class> <!-- android.day5.TestNetworkConfiguration -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

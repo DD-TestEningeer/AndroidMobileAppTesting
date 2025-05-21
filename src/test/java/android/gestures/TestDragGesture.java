@@ -14,39 +14,45 @@ import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
 import utils.DriverUtil;
 import utils.ElementUtil;
+import utils.LogUtil;
 
 public class TestDragGesture {
 	@Test
-	public void testDragGesture() throws MalformedURLException {
+	public void testDragGesture() throws MalformedURLException, InterruptedException {
 		// create a driver session
 		AppiumDriver driver = DriverUtil.getAndroidDriver();
 		ElementUtil.getScreenshot(driver, "HomePage");
 
 		// views
 		driver.findElement(AppiumBy.accessibilityId("Views")).click();
-		ElementUtil.getScreenshot(driver, "ViewPage");
+//		ElementUtil.getScreenshot(driver, "ViewPage");
+
+		Thread.sleep(2000);
 
 		// drag and drop
 		driver.findElement(AppiumBy.accessibilityId("Drag and Drop")).click();
-		ElementUtil.getScreenshot(driver, "DragPage");
+//		ElementUtil.getScreenshot(driver, "DragPage");
+
+		Thread.sleep(2000);
+
 		// dot1
-		WebElement ele = driver.findElement(AppiumBy.id("io.appium.android.apis:id/drag_dot_1"));
-		ElementUtil.getScreenshot(driver, "Dotpage");
-		// gesture
+		WebElement element = driver.findElement(AppiumBy.id("io.appium.android.apis:id/drag_dot_1"));
 
-		driver.executeScript("mobile:dragGesture", ImmutableMap.of(
+//		ElementUtil.getScreenshot(driver, "Dotpage");
 
-				"elementId", ((RemoteWebElement) ele).getId(), "endX", 804, "endY", 1543
+		Thread.sleep(2000);
 
-		));
+		ElementUtil.dragAndDropElement(driver, element);
 
 		// result message
 		String resultText = driver.findElement(AppiumBy.id("io.appium.android.apis:id/drag_result_text")).getText();
 
-		ElementUtil.getScreenshot(driver, "Completion");
-		String exp = "Dropped!";
-		AssertJUnit.assertEquals(resultText, exp);
-		System.out.println("Result Text is: " + resultText);
+//		ElementUtil.getScreenshot(driver, "Completion");
+
+		String expText = "Dropped!";
+
+		Assert.assertEquals(resultText, expText);
+		LogUtil.info("Result Text is: " + resultText);
 
 	}
 }

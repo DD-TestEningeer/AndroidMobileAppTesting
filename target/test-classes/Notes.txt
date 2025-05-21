@@ -30,4 +30,145 @@
 	}
 	
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+	Appium Setup Guide
 	
+	Appium Documentation
+	
+	Official Appium Documentation: https://appium.io/docs/en/2.4/
+	
+	Driver Capabilities
+	
+	UIAutomator2 Driver Capabilities: https://github.com/appium/appium-uiautomator2-driver?#capabilities
+	
+	Gestures Documentation
+	
+	Android Gestures (UIAutomator2): https://github.com/appium/appium-uiautomator2-driver/blob/2d02006eaf1e5a62acfbc36a5bc5a9ea271cf7cd/docs/android-mobile-gestures.md
+	
+	Enable Virtualization on Windows 10
+	
+	Virtualization Setup Guide: https://www.simplilearn.com/enable-virtualization-windows-10-article
+	
+	Step-by-Step Setup Instructions
+	
+	Step 1: Install Node.js
+	
+	Download from: https://nodejs.org/en/download
+	
+	To check if Node.js is installed, use the command to check version.
+	
+	Also check the version of npm.
+	
+	Step 2: Install Appium Server
+	
+	Install Appium globally using npm.
+	
+	Check the installation location on Windows.
+	
+	Uninstall Appium globally if needed.
+	
+	Start the Appium server.
+	
+	Stop the Appium server using terminal command.
+	
+	List the installed drivers.
+	
+	Install the UIAutomator2 driver.
+	
+	Step 3: Install Appium Inspector
+	
+	Appium Inspector GitHub: https://github.com/appium/appium-inspector
+	
+	Step 4: Install Android Studio
+	
+	Download from: https://developer.android.com/studio
+	
+	Step 5: Java & Android SDK Environment Setup
+	
+	For Windows:
+	
+	Set the ANDROID_HOME environment variable.
+	
+	Add platform-tools, tools, and tools/bin to system PATH.
+	
+	For macOS:
+	
+	Open or create the .zshrc file in your home directory.
+	
+	Add JAVA_HOME and PATH export lines to the file.
+	
+	Apply the changes using the source command.
+	
+	Check JAVA_HOME and PATH values.
+	
+	For ANDROID_HOME on macOS:
+	
+	Add ANDROID_HOME and PATH updates to .zshrc.
+	
+	Apply the changes using the source command.
+	
+	Check ANDROID_HOME and PATH values.
+	
+	APK & AVD Essentials
+	
+	APK: Android Application Package
+	
+	AVD: Android Virtual Device
+	
+	SDK: Software Development Kit
+	
+	ADB: Android Debug Bridge
+	
+	Use the command to check connected devices.
+	
+	UDID (Unique Device Identifier)
+	
+	To get UDID for iOS simulators on macOS, use the simctl list command.
+	
+	Installation Issues & Solutions
+	
+	Emulator Acceleration:
+	
+	Guide for enabling acceleration: https://developer.android.com/studio/run/emulator-acceleration
+	
+	Solutions for AMD Processors:
+	
+	Restart PC.
+	
+	Enter BIOS by pressing F2 during boot.
+	
+	Enable SVM Mode.
+	
+	Set UMA Frame Buffer Size to Auto.
+	
+	Save and Exit BIOS, then restart.
+	
+	Solutions for Intel Processors:
+	
+	Download and install the latest Intel HAXM.
+	
+	Refer to the HAXM releases and installation guide.
+	
+	Performance Parameters
+	
+	Appium performance data collection: Performance Data
+	
+	Real Device Setup – Enable USB Debugging on Android
+	
+	Steps:
+	
+	Go to Settings → System → About Phone.
+	
+	Tap Build Number 7–8 times to enable Developer Mode.
+	
+	Go to Developer Options and enable USB Debugging.
+	
+	Connect the device via USB and confirm the permission prompt.
+	
+	Use ADB command to verify connection.
+	
+	USB Drivers:
+	
+	For Google Devices: Google USB Drivers
+	
+	For Other OEM Devices: OEM USB Drivers	

@@ -1,60 +1,70 @@
 package utils;
 
-import java.net.MalformedURLException;
 import java.net.URL;
-
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 
 public class DriverUtil {
 
-	public static AndroidDriver getAndroidDriver() throws MalformedURLException {
+	static AndroidDriver androidDriver;
+	static AppiumDriver appiumDriver;
+	// please replace with your actual apk file location
+	static String appPath = System.getProperty("user.dir") + "\\src\\test\\resources\\ApiDemos-debug.apk";
 
-		UiAutomator2Options options = new UiAutomator2Options();
+	public static AndroidDriver getAndroidDriver() {
 
-		options.setCapability("platformName", "android");
-		options.setCapability("appium:automationName", "uiautomator2");
-		options.setCapability("appium:deviceName", "emulator-5554");
-		options.setCapability("appium:app",
-				"C:\\StarAgile\\AndroidMobileAppTesting\\src\\test\\resources\\ApiDemos-debug.apk");
-		
-		// please replace with your actual apk file location 
+		try {
 
-		// Server URL
+			UiAutomator2Options options = new UiAutomator2Options();
 
-		URL serverURL = new URL(" http://127.0.0.1:4723");
+			options.setCapability("platformName", "android");
+			options.setCapability("appium:automationName", "uiautomator2");
+			options.setCapability("appium:deviceName", "emulator-5554");
+			options.setCapability("appium:app", appPath);
 
-		AndroidDriver driver = new AndroidDriver(serverURL, options);
+			// Server URL
 
-		System.out.println("The session is created with id : " + driver.getSessionId());
-		
-		return driver;
+			URL serverURL = new URL(" http://127.0.0.1:4723");
 
-	}
-	
-	
-	public static AppiumDriver getAppiumDriver() throws MalformedURLException {
+			androidDriver = new AndroidDriver(serverURL, options);
 
-		UiAutomator2Options options = new UiAutomator2Options();
+			System.out.println("The Android Driver Session is created with id : " + androidDriver.getSessionId());
 
-		options.setCapability("platformName", "android");
-		options.setCapability("appium:automationName", "uiautomator2");
-		options.setCapability("appium:deviceName", "emulator-5554");
-		options.setCapability("appium:app",
-				"C:\\StarAgile\\AndroidMobileAppTesting\\src\\test\\resources\\ApiDemos-debug.apk");
+		} catch (Exception e) {
 
-		// Server URL
+			e.printStackTrace();
+		}
 
-		URL serverURL = new URL(" http://127.0.0.1:4723");
-
-		AppiumDriver driver = new AndroidDriver(serverURL, options);
-
-		System.out.println("The session is created with id : " + driver.getSessionId());
-		
-		return driver;
+		return androidDriver;
 
 	}
 
+	public static AppiumDriver getAppiumDriver() {
+
+		try {
+
+			UiAutomator2Options options = new UiAutomator2Options();
+
+			options.setCapability("platformName", "android");
+			options.setCapability("appium:automationName", "uiautomator2");
+			options.setCapability("appium:deviceName", "emulator-5554");
+			options.setCapability("appium:app", appPath);
+
+			// Server URL
+
+			URL serverURL = new URL(" http://127.0.0.1:4723");
+
+			appiumDriver = new AndroidDriver(serverURL, options);
+
+			System.out.println("The Appium Driver session is created with id : " + appiumDriver.getSessionId());
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return appiumDriver;
+
+	}
 
 }

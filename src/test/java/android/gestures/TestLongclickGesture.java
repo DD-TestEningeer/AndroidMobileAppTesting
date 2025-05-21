@@ -10,6 +10,7 @@ import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
 import utils.DriverUtil;
+import utils.ElementUtil;
 
 public class TestLongclickGesture {
 	@Test
@@ -27,11 +28,8 @@ public class TestLongclickGesture {
 		WebElement ele = driver.findElement(AppiumBy.id("io.appium.android.apis:id/drag_dot_1"));
 
 		// longclickGesture
-
-		driver.executeScript("mobile:longClickGesture",
-				ImmutableMap.of("elementId", ((RemoteWebElement) ele).getId(), "duration", 4000
-
-				));
+		
+		ElementUtil.longClick(driver, ele);
 
 		System.out.println("Long Click gesture is completed!");
 
